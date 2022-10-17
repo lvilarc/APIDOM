@@ -1,0 +1,65 @@
+<!-- Aluno: Lucas Vilar Carneiro - DRE 119108874-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JS Add and Remove Circles</title>
+
+    <style type="text/css">
+        .circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            float: left;
+            margin-right: 50px;
+        }
+
+        #red-circle {
+            background-color: red;
+        }
+
+        #blue-circle {
+            background-color: blue;
+        }
+
+        #yellow-circle {
+            background-color: yellow;
+        }
+    </style>
+
+    <script type="text/javascript">
+        let qt = 0;
+
+        function addElement() {
+            qt++;
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("circle");
+            if (qt % 3 == 0) {
+                newDiv.style.cssText = "background: red";
+                newDiv.id = `circle${qt}`;
+            } else if (qt % 3 == 1) {
+                newDiv.style.cssText = "background: blue";
+                newDiv.id = `circle${qt}`;
+            } else {
+                newDiv.style.cssText = "background: yellow";
+                newDiv.id = `circle${qt}`;
+            }
+            document.body.appendChild(newDiv);
+        }
+
+        function removeElement() {
+            if (qt > 0) {
+                var elem = document.getElementById(`circle${qt}`);
+                elem.parentNode.removeChild(elem);
+                qt--;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="addElement()">adicionar</button>
+    <button onclick="removeElement()">remover</button>
+</body>
+
+</html>
